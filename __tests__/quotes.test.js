@@ -17,6 +17,8 @@ describe('quotes routes', () => {
         'Okay, I have never heard someone say so many wrong things, one after the other, consecutively, in a row.',
     });
     const res = await request(app).post('/quotes').send(quote);
+    console.log(res);
+    expect(res.status).toBe(200);
     expect(res.body.episode_id).toEqual(quote.episode_id);
     expect(res.body.character_id).toEqual(quote.character_id);
     expect(res.body.detail).toEqual(quote.detail);
